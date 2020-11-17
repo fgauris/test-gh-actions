@@ -21,7 +21,7 @@ jobs:
           pattern: '^(VHERNO-\d*|notask):.*$'
           flags: 'gm'
           error: 'All commits should start with ("VHERNO-XXX:") or "notask:".'
-          excludeDescription: 'false'
-          excludeTitle: 'false' # Exclude pull request title from validation
+          excludeDescription: 'true'
+          excludeTitle: 'true'
           checkAllCommitMessages: 'true'
           accessToken: ${{ secrets.GITHUB_TOKEN }}

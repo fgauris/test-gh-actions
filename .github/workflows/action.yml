@@ -1,4 +1,4 @@
-name: 'Commit Message Check'
+name: 'Validation steps'
 on:
   pull_request:
     types:

@@ -15,7 +15,7 @@ jobs:
     name: Check Commit Message
     runs-on: ubuntu-latest
     steps:
-      - name: Check Pull request
+      - name: Check commit messages start with JIRA numbers or notask
         uses: gsactions/commit-message-checker@v1
         with:
           pattern: '^(VHERNO-\d*|notask):.*$'

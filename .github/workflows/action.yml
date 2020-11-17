@@ -1,0 +1,27 @@
+name: 'Commit Message Check'
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Pull request
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '^(VHERNO-\d*|notask):.*$'
+          flags: 'gm'
+          error: 'All commits should start with ("VHERNO-XXX:") or "notask:".'
+          excludeDescription: 'false'
+          excludeTitle: 'false' # Exclude pull request title from validation
+          checkAllCommitMessages: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
